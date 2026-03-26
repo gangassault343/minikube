@@ -29,6 +29,8 @@ chmod +x kubectl
 sudo mv kubectl /usr/local/bin/
 kubectl version --client
 
+-----------------> You Can install KIND if your resources are less
+
 //Install Minikube
 curl -LO https://storage.googleapis.com/minikube/releases/latest/minikube-linux-amd64
 
