@@ -1,0 +1,14 @@
+sudo apt update
+sudo apt install -y docker.io
+sudo systemctl enable docker
+sudo systemctl start docker
+sudo usermod -aG docker ubuntu
+
+Logout and login again: exit
+
+docker run -d --restart=unless-stopped \
+  --privileged \
+  -p 80:80 -p 443:443 \
+  --name rancher \
+  rancher/rancher:latest
+wait for 5 minutes then your rancher will be up
