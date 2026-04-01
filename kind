@@ -41,4 +41,21 @@ nodes:
   - role: worker
   - role: worker
 
+# rancher on KIND
+kind: Cluster
+apiVersion: kind.x-k8s.io/v1alpha4
+
+nodes:
+  - role: control-plane
+    extraPortMappings:
+      - containerPort: 80
+        hostPort: 8080
+      - containerPort: 443
+        hostPort: 8443
+    extraMounts:
+      - hostPath: /home/ubuntu/mysql-data
+        containerPath: /data/mysql
+  - role: worker
+  - role: worker
+
 kind create cluster --config kind-config.yaml
