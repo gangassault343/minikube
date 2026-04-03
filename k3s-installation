@@ -1,0 +1,8 @@
+# Install K3s:Run this one-liner. This installs:Kubernetes,containerd,kubectl (as k3s kubectl)
+curl -sfL https://get.k3s.io | sh -
+
+sudo k3s kubectl get nodes
+
+# Make kubectl usable without sudo
+sudo cp /etc/rancher/k3s/k3s.yaml ~/.kube/config
+sudo chown $USER:$USER ~/.kube/config
