@@ -6,3 +6,15 @@ sudo k3s kubectl get nodes
 # Make kubectl usable without sudo
 sudo cp /etc/rancher/k3s/k3s.yaml ~/.kube/config
 sudo chown $USER:$USER ~/.kube/config
+
+#Set correct kubeconfig
+export KUBECONFIG=/etc/rancher/k3s/k3s.yaml
+kubectl get nodes
+
+#Make it permanent
+mkdir -p ~/.kube
+sudo cp /etc/rancher/k3s/k3s.yaml ~/.kube/config
+sudo chown $USER:$USER ~/.kube/config
+kubectl cluster-info
+
+
